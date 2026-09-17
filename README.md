@@ -10,7 +10,7 @@ The contribution is the implementation and evaluation of the error-aware adaptiv
 
 ## Status
 
-**Phase 1 — project foundation and architecture documentation is complete.** No application, Docker controller, Nginx configuration, database integration, machine-learning implementation, autoscaling logic, adaptive retraining logic, or React frontend has been implemented yet.
+**Phase 2 — application and container identity is complete.** The repository now includes a small Dockerized FastAPI target with bounded CPU work, a health endpoint, response timing header, and required container labels. Docker control, Nginx configuration, database integration, machine-learning implementation, autoscaling logic, adaptive retraining logic, and the React frontend remain unimplemented.
 
 ## Locked control loop
 
