@@ -1,0 +1,42 @@
+services:
+  application:
+    build:
+      context: ./app
+    image: cloud-resource-autoscaling-app:phase3
+    labels:
+      com.ml-autoscaler.project: cloud-resource-autoscaling
+      com.ml-autoscaler.role: application
+      com.ml-autoscaler.managed: "true"
+    expose:
+      - "8000"
+    networks:
+      - application-network
+
+  nginx:
+    build:
+      context: ./nginx
+    image: cloud-resource-autoscaling-nginx:phase3
+    ports:
+      - "8080:80"
+    volumes:
+      - nginx-runtime:/etc/nginx/generated
+    networks:
+      - application-network
+
+  membership-controller:
+    build:
+      context: ./nginx/membership-controller
+    environment:
+      APPLICATION_NETWORK: cloud-resource-autoscaling-network
+      NGINX_CONTAINER_LABEL: com.docker.compose.service=nginx
+      SYNC_INTERVAL_SECONDS: "2"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - nginx-runtime:/runtime
+
+networks:
+  application-network:
+    name: cloud-resource-autoscaling-network
+
+volumes:
+  nginx-runtime:

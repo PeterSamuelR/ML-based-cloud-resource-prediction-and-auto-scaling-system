@@ -10,7 +10,7 @@ The contribution is the implementation and evaluation of the error-aware adaptiv
 
 ## Status
 
-**Phase 2 — application and container identity is complete.** The repository now includes a small Dockerized FastAPI target with bounded CPU work, a health endpoint, response timing header, and required container labels. Docker control, Nginx configuration, database integration, machine-learning implementation, autoscaling logic, adaptive retraining logic, and the React frontend remain unimplemented.
+**Phase 3 — Nginx load balancing and dynamic application membership is complete.** The repository now includes a Docker Compose local environment where a label-scoped membership controller discovers healthy application replicas, generates an Nginx upstream, validates it, and gracefully reloads Nginx. Database integration, monitoring, machine learning, autoscaling decisions, adaptive retraining, and the React frontend remain unimplemented.
 
 ## Locked control loop
 

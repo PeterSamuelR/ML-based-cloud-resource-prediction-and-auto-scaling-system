@@ -3,7 +3,7 @@
   "title": "Cloud Resource Autoscaling Configuration",
   "type": "object",
   "additionalProperties": false,
-  "required": ["project", "monitoring", "prediction", "scaling", "adaptive", "experiment"],
+  "required": ["project", "monitoring", "prediction", "nginx", "scaling", "adaptive", "experiment"],
   "properties": {
     "project": {
       "type": "object",
@@ -40,6 +40,15 @@
         "horizon_seconds": {"const": 30},
         "model": {"const": "random_forest_regression"},
         "temporal_split": {"const": "chronological"}
+      }
+    },
+    "nginx": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["membership_sync_interval_seconds", "membership_lifecycle"],
+      "properties": {
+        "membership_sync_interval_seconds": {"type": "integer", "minimum": 1},
+        "membership_lifecycle": {"const": "discover_generate_validate_graceful_reload"}
       }
     },
     "scaling": {
