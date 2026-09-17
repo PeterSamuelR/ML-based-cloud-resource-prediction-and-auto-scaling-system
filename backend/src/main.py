@@ -36,7 +36,14 @@ async def monitoring_loop() -> None:
         try:
             metric = await asyncio.to_thread(collector.collect)
             await asyncio.to_thread(metrics_repository.insert, metric)
-            await asyncio.to_thread(evaluate_due_predictions, document_repositories["predictions"].collection, metric.model_dump())
+            # A forecast may be observed by the first sample after its target time.
+            # Keep that acceptance window aligned with the configured sampling cadence.
+            await asyncio.to_thread(
+                evaluate_due_predictions,
+                document_repositories["predictions"].collection,
+                metric.model_dump(),
+                config["monitoring"]["interval_seconds"],
+            )
             await asyncio.to_thread(prediction_service.train_if_needed)
             prediction = prediction_service.predict(metric.model_dump())
             selected_policy = config["selected_policy"]

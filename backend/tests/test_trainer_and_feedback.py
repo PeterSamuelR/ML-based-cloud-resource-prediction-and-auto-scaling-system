@@ -56,3 +56,17 @@ def test_feedback_accepts_mongodb_naive_timestamp_values():
     target = datetime.now(timezone.utc).replace(tzinfo=None)
     collection = Collection({"_id": "prediction", "target_timestamp": target, "predicted_aggregate_cpu_percent": 20, "actual_aggregate_cpu_percent": None})
     assert evaluate_due_predictions(collection, {"timestamp": target.replace(tzinfo=timezone.utc), "aggregate_cpu_percent": 25}) == 1
+
+
+def test_feedback_accepts_the_first_observation_within_a_monitoring_interval_after_target():
+    target = datetime.now(timezone.utc)
+    collection = Collection({"_id": "prediction", "target_timestamp": target, "predicted_aggregate_cpu_percent": 20, "actual_aggregate_cpu_percent": None})
+
+    updated = evaluate_due_predictions(
+        collection,
+        {"timestamp": target + timedelta(seconds=4), "aggregate_cpu_percent": 25},
+        tolerance_seconds=5,
+    )
+
+    assert updated == 1
+    assert collection.updated["absolute_error"] == 5
