@@ -19,5 +19,13 @@ def test_dataset_uses_only_current_features_and_actual_future_cpu_target():
 def test_dataset_rejects_missing_future_observation_at_expected_horizon():
     start = datetime(2026, 1, 1, tzinfo=timezone.utc)
     metrics = [metric(start + timedelta(seconds=5 * index), float(index)) for index in range(6)]
-    metrics.append(metric(start + timedelta(seconds=60), 99))
+    metrics.append(metric(start + timedelta(seconds=65), 99))
     assert build_future_cpu_dataset(metrics).features.empty
+
+
+def test_dataset_accepts_an_actual_target_sample_with_one_interval_of_collection_jitter():
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    metrics = [metric(start, 1), metric(start + timedelta(seconds=35), 9)]
+    dataset = build_future_cpu_dataset(metrics)
+    assert len(dataset.features) == 1
+    assert dataset.targets.iloc[0] == 9

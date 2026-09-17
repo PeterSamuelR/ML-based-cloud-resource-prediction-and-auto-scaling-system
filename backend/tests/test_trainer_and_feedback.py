@@ -50,3 +50,9 @@ def test_feedback_attaches_actual_cpu_only_at_the_prediction_target_time():
     updated = evaluate_due_predictions(collection, {"timestamp": target, "aggregate_cpu_percent": 55})
     assert updated == 1
     assert collection.updated["absolute_error"] == 15
+
+
+def test_feedback_accepts_mongodb_naive_timestamp_values():
+    target = datetime.now(timezone.utc).replace(tzinfo=None)
+    collection = Collection({"_id": "prediction", "target_timestamp": target, "predicted_aggregate_cpu_percent": 20, "actual_aggregate_cpu_percent": None})
+    assert evaluate_due_predictions(collection, {"timestamp": target.replace(tzinfo=timezone.utc), "aggregate_cpu_percent": 25}) == 1

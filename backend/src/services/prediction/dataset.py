@@ -30,13 +30,20 @@ def build_future_cpu_dataset(metrics: list[dict[str, Any]], interval_seconds: in
     frame["timestamp"] = pd.to_datetime(frame["timestamp"], utc=True)
     frame = frame.sort_values("timestamp").reset_index(drop=True)
     frame = frame.dropna(subset=["aggregate_cpu_percent", "aggregate_memory_percent"])
-    steps = horizon_seconds // interval_seconds
-    tolerance = timedelta(seconds=interval_seconds / 2)
+    # Docker stats calls add small scheduling jitter. Use the first *observed*
+    # metric at or after t + horizon, accepting at most one monitoring interval
+    # of lateness. Features still contain data available no later than t.
+    maximum_lateness = timedelta(seconds=interval_seconds)
     rows: list[dict[str, Any]] = []
-    for index in range(len(frame) - steps):
-        current, future = frame.iloc[index], frame.iloc[index + steps]
+    for index in range(len(frame)):
+        current = frame.iloc[index]
         expected_target_time = current["timestamp"] + timedelta(seconds=horizon_seconds)
-        if abs(future["timestamp"] - expected_target_time) > tolerance:
+        subsequent = frame.iloc[index + 1 :]
+        candidates = subsequent[subsequent["timestamp"] >= expected_target_time]
+        if candidates.empty:
+            continue
+        future = candidates.iloc[0]
+        if future["timestamp"] - expected_target_time > maximum_lateness:
             continue
         row = {column: current.get(column, 0.0) or 0.0 for column in FEATURE_COLUMNS}
         row["target"] = future["aggregate_cpu_percent"]

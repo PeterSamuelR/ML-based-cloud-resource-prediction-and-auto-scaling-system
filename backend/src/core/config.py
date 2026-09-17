@@ -20,10 +20,13 @@ def load_config() -> dict[str, Any]:
     config_directory = configured_directory if (configured_directory / "default.yaml").exists() else fallback_directory
     with (config_directory / "default.yaml").open(encoding="utf-8") as file:
         config = yaml.safe_load(file)
+    # Both threshold sections are needed because a predictive deployment falls
+    # back to the reactive baseline while no trained model is available.
+    for policy_name in ("reactive", "predictive"):
+        policy_file = config_directory / f"{policy_name}.yaml"
+        if policy_file.exists():
+            with policy_file.open(encoding="utf-8") as file:
+                config = _merge(config, yaml.safe_load(file))
     policy = os.getenv("AUTOSCALING_POLICY", "reactive")
-    policy_file = config_directory / f"{policy}.yaml"
-    if policy_file.exists():
-        with policy_file.open(encoding="utf-8") as file:
-            config = _merge(config, yaml.safe_load(file))
     config["selected_policy"] = policy
     return config

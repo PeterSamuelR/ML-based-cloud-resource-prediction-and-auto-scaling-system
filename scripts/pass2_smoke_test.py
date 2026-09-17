@@ -53,7 +53,8 @@ def main() -> None:
         print("Observed scaling event:")
         print(json.dumps(events["items"][0], default=str, indent=2))
     finally:
-        subprocess.run(["docker", "compose", "down", "--remove-orphans", "--volumes"], check=False)
+        # Preserve observed MongoDB and model-artifact volumes for inspection.
+        subprocess.run(["docker", "compose", "down", "--remove-orphans"], check=False)
 
 
 if __name__ == "__main__":

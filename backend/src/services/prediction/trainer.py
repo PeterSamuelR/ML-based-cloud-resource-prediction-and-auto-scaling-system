@@ -72,7 +72,7 @@ class RandomForestPredictionService:
         if self.model is None or self.version is None or metric.get("aggregate_cpu_percent") is None:
             return None
         values = pd.DataFrame([[metric.get(column, 0.0) or 0.0 for column in FEATURE_COLUMNS]], columns=FEATURE_COLUMNS)
-        predicted = max(0.0, min(100.0, float(self.model.predict(values)[0])))
+        predicted = max(0.0, float(self.model.predict(values)[0]))
         timestamp = metric["timestamp"]
         return PredictionDocument(
             timestamp=timestamp,
