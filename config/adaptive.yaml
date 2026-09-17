@@ -1,0 +1,8 @@
+# Overrides for the adaptive predictive policy. Values are declarative until Phase 11.
+policy: adaptive_predictive
+adaptive:
+  absolute_error_threshold: 15.0
+  consecutive_error_requirement: 3
+  minimum_recent_training_samples: 120
+  retraining_cooldown_seconds: 1800
+  candidate_validation_required: true

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cloud Resource Autoscaling Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project", "monitoring", "prediction", "scaling", "adaptive", "experiment"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "container_labels"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "container_labels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["project", "role", "managed"],
+          "properties": {
+            "project": {"type": "string", "minLength": 1},
+            "role": {"const": "application"},
+            "managed": {"const": "true"}
+          }
+        }
+      }
+    },
+    "monitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["interval_seconds", "aggregate_cpu_definition"],
+      "properties": {
+        "interval_seconds": {"const": 5},
+        "aggregate_cpu_definition": {"const": "mean_active_healthy_application_replicas"}
+      }
+    },
+    "prediction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["horizon_seconds", "model", "temporal_split"],
+      "properties": {
+        "horizon_seconds": {"const": 30},
+        "model": {"const": "random_forest_regression"},
+        "temporal_split": {"const": "chronological"}
+      }
+    },
+    "scaling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min_replicas", "max_replicas", "cooldown_seconds"],
+      "properties": {
+        "min_replicas": {"type": "integer", "minimum": 1},
+        "max_replicas": {"type": "integer", "minimum": 1},
+        "cooldown_seconds": {"type": "integer", "minimum": 0}
+      }
+    },
+    "adaptive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["absolute_error_threshold", "consecutive_error_requirement", "minimum_recent_training_samples", "retraining_cooldown_seconds", "candidate_validation_required"],
+      "properties": {
+        "absolute_error_threshold": {"type": "number", "minimum": 0},
+        "consecutive_error_requirement": {"type": "integer", "minimum": 1},
+        "minimum_recent_training_samples": {"type": "integer", "minimum": 1},
+        "retraining_cooldown_seconds": {"type": "integer", "minimum": 0},
+        "candidate_validation_required": {"const": true}
+      }
+    },
+    "experiment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fairness_fields"],
+      "properties": {
+        "fairness_fields": {
+          "type": "array",
+          "minItems": 7,
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

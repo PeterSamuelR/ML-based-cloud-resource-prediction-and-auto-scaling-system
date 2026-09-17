@@ -1,0 +1,39 @@
+project:
+  name: cloud-resource-autoscaling
+  container_labels:
+    project: cloud-resource-autoscaling
+    role: application
+    managed: "true"
+
+monitoring:
+  interval_seconds: 5
+  aggregate_cpu_definition: mean_active_healthy_application_replicas
+
+prediction:
+  horizon_seconds: 30
+  model: random_forest_regression
+  temporal_split: chronological
+
+scaling:
+  min_replicas: 1
+  max_replicas: 5
+  cooldown_seconds: 30
+
+adaptive:
+  absolute_error_threshold: 15.0
+  consecutive_error_requirement: 3
+  minimum_recent_training_samples: 120
+  retraining_cooldown_seconds: 1800
+  candidate_validation_required: true
+
+experiment:
+  fairness_fields:
+    - application_image_and_behavior
+    - workload_pattern_and_locust_configuration
+    - monitoring_interval
+    - replica_limits
+    - docker_environment
+    - nginx_membership_behavior
+    - initial_conditions
+    - trial_duration
+    - metrics_collection_process

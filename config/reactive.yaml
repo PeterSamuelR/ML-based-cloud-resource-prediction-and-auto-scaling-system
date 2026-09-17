@@ -1,0 +1,5 @@
+# Overrides for the reactive policy. Values are declarative until Phase 7.
+policy: reactive
+reactive:
+  scale_out_cpu_threshold: 75.0
+  scale_in_cpu_threshold: 35.0

@@ -1,0 +1,5 @@
+# Overrides for the predictive policy. Values are declarative until Phase 9.
+policy: predictive
+predictive:
+  scale_out_predicted_cpu_threshold: 75.0
+  scale_in_predicted_cpu_threshold: 35.0
