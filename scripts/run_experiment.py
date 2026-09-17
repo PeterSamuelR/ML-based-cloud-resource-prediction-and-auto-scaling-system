@@ -37,14 +37,17 @@ def request(path: str) -> dict:
         return json.loads(response.read())
 
 
-def command(arguments: list[str], environment: dict[str, str] | None = None) -> None:
-    completed = subprocess.run(arguments, env=environment, text=True, capture_output=True)
+def command(arguments: list[str], environment: dict[str, str] | None = None, input_text: str | None = None) -> None:
+    completed = subprocess.run(arguments, env=environment, text=True, input=input_text, capture_output=True)
     if completed.returncode:
         raise RuntimeError(f"Command failed: {' '.join(arguments)}\n{completed.stdout}\n{completed.stderr}")
 
 
 def timestamp(value: str | None) -> datetime | None:
-    return datetime.fromisoformat(value.replace("Z", "+00:00")) if value else None
+    if not value:
+        return None
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed
 
 
 def in_window(items: list[dict], start: datetime, end: datetime, field: str = "timestamp") -> list[dict]:
@@ -78,7 +81,8 @@ def config_snapshot() -> dict:
     default = yaml.safe_load((root / "config" / "default.yaml").read_text(encoding="utf-8"))
     reactive = yaml.safe_load((root / "config" / "reactive.yaml").read_text(encoding="utf-8"))
     predictive = yaml.safe_load((root / "config" / "predictive.yaml").read_text(encoding="utf-8"))
-    return {"default": default, "reactive": reactive, "predictive": predictive}
+    adaptive = yaml.safe_load((root / "config" / "adaptive.yaml").read_text(encoding="utf-8"))
+    return {"default": default, "reactive": reactive, "predictive": predictive, "adaptive": adaptive}
 
 
 def save_exports(experiment_id: str, directory: Path) -> None:
@@ -139,7 +143,7 @@ def run_trial(arguments: argparse.Namespace) -> dict:
         },
     }
     encoded = base64.b64encode(json.dumps(payload, default=str).encode("utf-8")).decode("ascii")
-    command(["docker", "compose", "exec", "-T", "backend", "python", "-m", "src.services.experiments.recorder", encoded], environment)
+    command(["docker", "compose", "exec", "-T", "backend", "python", "-m", "src.services.experiments.recorder", "-"], environment, encoded)
     if arguments.export_directory:
         save_exports(experiment_id, Path(arguments.export_directory))
     return payload

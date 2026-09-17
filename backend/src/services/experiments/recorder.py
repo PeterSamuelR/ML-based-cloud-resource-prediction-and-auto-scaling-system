@@ -16,7 +16,7 @@ def record(payload: dict[str, Any]) -> str:
 
 
 def main() -> None:
-    encoded = sys.argv[1]
+    encoded = sys.stdin.read() if len(sys.argv) == 2 and sys.argv[1] == "-" else sys.argv[1]
     payload = json.loads(base64.b64decode(encoded).decode("utf-8"))
     print(record(payload))
 
