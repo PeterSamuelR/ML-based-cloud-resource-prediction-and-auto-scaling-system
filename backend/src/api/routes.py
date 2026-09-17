@@ -10,6 +10,11 @@ def get_metrics_repository() -> MetricsRepository:
     return metrics_repository
 
 
+def get_repositories():
+    from src.main import document_repositories
+    return document_repositories
+
+
 @router.get("/metrics/current")
 def current_metrics(repository: MetricsRepository = Depends(get_metrics_repository)):
     metric = repository.latest()
@@ -47,3 +52,27 @@ def active_containers(repository: MetricsRepository = Depends(get_metrics_reposi
     if latest is None:
         return {"items": []}
     return {"items": latest.get("per_container", [])}
+
+
+@router.get("/predictions")
+def predictions(limit: int = Query(default=100, ge=1, le=1_000), repositories=Depends(get_repositories)):
+    items = repositories["predictions"].history(limit)
+    for item in items:
+        item.pop("_id", None)
+    return {"items": items}
+
+
+@router.get("/models")
+def models(limit: int = Query(default=100, ge=1, le=1_000), repositories=Depends(get_repositories)):
+    items = repositories["model_versions"].history(limit)
+    for item in items:
+        item.pop("_id", None)
+    return {"items": items}
+
+
+@router.get("/scaling/events")
+def scaling_events(limit: int = Query(default=100, ge=1, le=1_000), repositories=Depends(get_repositories)):
+    items = repositories["scaling_events"].history(limit)
+    for item in items:
+        item.pop("_id", None)
+    return {"items": items}

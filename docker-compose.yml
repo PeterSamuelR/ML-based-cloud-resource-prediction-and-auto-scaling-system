@@ -55,11 +55,17 @@ services:
       MONGODB_DATABASE: cloud_autoscaling
       MONITORING_INTERVAL_SECONDS: "5"
       NGINX_ACCESS_LOG: /var/log/nginx/access.json
+      CONFIG_DIRECTORY: /config
+      APPLICATION_NETWORK: cloud-resource-autoscaling-network
+      APPLICATION_IMAGE: cloud-resource-autoscaling-app:phase3
+      AUTOSCALING_POLICY: ${AUTOSCALING_POLICY:-reactive}
     ports:
       - "8001:8001"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - nginx-logs:/var/log/nginx:ro
+      - ./config:/config:ro
+      - models-data:/models
     depends_on:
       mongodb:
         condition: service_healthy
@@ -72,3 +78,4 @@ volumes:
   nginx-runtime:
   nginx-logs:
   mongodb-data:
+  models-data:

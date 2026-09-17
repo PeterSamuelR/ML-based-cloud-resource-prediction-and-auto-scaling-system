@@ -23,11 +23,13 @@ class MetricDocument(BaseModel):
 
 
 class PredictionDocument(BaseModel):
-    """Schema reserved for the later prediction pass; no predictions are created here."""
     timestamp: datetime
     target_timestamp: datetime
     predicted_aggregate_cpu_percent: float
     model_version: str
+    actual_aggregate_cpu_percent: float | None = None
+    absolute_error: float | None = None
+    evaluated_at: datetime | None = None
 
 
 class ScalingEventDocument(BaseModel):
@@ -37,6 +39,8 @@ class ScalingEventDocument(BaseModel):
     reason: str
     replica_count_before: int
     replica_count_after: int
+    status: str = "completed"
+    model_version: str | None = None
 
 
 class ModelVersionDocument(BaseModel):

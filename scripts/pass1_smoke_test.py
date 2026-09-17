@@ -22,12 +22,12 @@ def api(path: str) -> dict:
         return json.loads(response.read())
 
 
-def wait_for_metric(require_traffic: bool) -> dict:
+def wait_for_metric() -> dict:
     deadline = time.monotonic() + 75
     while time.monotonic() < deadline:
         try:
             metric = api("/api/metrics/current")
-            if metric["active_healthy_replica_count"] >= 2 and (not require_traffic or metric["request_rate_per_second"] > 0):
+            if metric["active_healthy_replica_count"] >= 2:
                 return metric
         except Exception:
             pass
@@ -35,14 +35,22 @@ def wait_for_metric(require_traffic: bool) -> dict:
     raise RuntimeError("Monitoring did not produce the expected healthy-replica/traffic metric in time.")
 
 
+def observed_traffic_metric() -> dict:
+    history = api("/api/metrics/history?limit=20")
+    for metric in history["items"]:
+        if metric["request_rate_per_second"] > 0 and metric["response_time_ms"] is not None:
+            return metric
+    raise RuntimeError("No persisted metric captured Locust traffic.")
+
+
 def main() -> None:
     try:
         run("docker", "compose", "up", "-d", "--build", "--scale", "application=2")
-        wait_for_metric(require_traffic=False)
+        wait_for_metric()
         environment = os.environ.copy()
         environment.update({"LOCUST_WORKLOAD_SCENARIO": "stable", "LOCUST_WORK_DURATION_MS": "25", "LOCUST_WORK_INTENSITY": "10"})
         run("python", "-m", "locust", "-f", "load-tests/locustfile.py", "--headless", "-u", "2", "-r", "2", "-t", "12s", environment=environment)
-        metric = wait_for_metric(require_traffic=True)
+        metric = observed_traffic_metric()
         history = api("/api/metrics/history?limit=10")
         containers = api("/api/containers")
         print("Observed metric:")

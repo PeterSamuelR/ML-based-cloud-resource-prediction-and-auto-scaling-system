@@ -138,6 +138,7 @@ def safe_remove(client: docker.DockerClient, container_id: str) -> None:
         raise RuntimeError("Only a currently healthy, managed application replica can be safely removed.")
     apply_membership(client, excluded_id=target.id)
     target.stop(timeout=10)
+    target.remove()
 
 
 def watch(client: docker.DockerClient) -> None:
@@ -161,10 +162,12 @@ def main() -> None:
     command = sys.argv[1] if len(sys.argv) > 1 else "watch"
     if command == "watch":
         watch(client)
+    elif command == "sync":
+        apply_membership(client)
     elif command == "remove" and len(sys.argv) == 3:
         safe_remove(client, sys.argv[2])
     else:
-        raise SystemExit("Usage: controller.py watch | controller.py remove <container-id>")
+        raise SystemExit("Usage: controller.py watch | controller.py sync | controller.py remove <container-id>")
 
 
 if __name__ == "__main__":
