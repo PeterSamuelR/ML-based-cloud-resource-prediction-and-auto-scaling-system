@@ -10,7 +10,9 @@ The contribution is the implementation and evaluation of the error-aware adaptiv
 
 ## Status
 
-**Pass 3 — error-aware adaptive predictive autoscaling is complete.** The local Docker environment includes label-scoped Nginx membership, five-second monitoring, MongoDB persistence, a Random Forest predictor, reactive/predictive policies, prediction feedback, and guarded adaptive candidate replacement. The React frontend and later experimental evaluation work remain out of scope.
+**Pass 3 — error-aware adaptive predictive autoscaling is complete.** The local Docker environment includes label-scoped Nginx membership, five-second monitoring, MongoDB persistence, a Random Forest predictor, reactive/predictive policies, prediction feedback, and guarded adaptive candidate replacement.
+
+**Pass 4 — dashboard, experiment recording, exports, and end-to-end integration are complete.** The React dashboard is available at `http://localhost:5173` when Docker Compose is running. It polls the backend's read-only API every five seconds and shows current state, charts, scaling/adaptation histories, model data, and observed experiment results.
 
 ## Locked control loop
 
@@ -49,6 +51,7 @@ The configuration contract is defined by [config/schema.json](config/schema.json
 - [Experiment protocol](docs/experiment-protocol.md)
 - [Configuration reference](docs/configuration.md)
 - [Planned API](docs/api.md)
+- [Adaptive retraining](docs/adaptive-retraining.md)
 
 ## Planned phases
 

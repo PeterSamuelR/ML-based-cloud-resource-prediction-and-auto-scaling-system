@@ -42,3 +42,13 @@ Each completed trial must retain:
 - Claims must identify the relevant workload, configuration, number of trials, and observed measure.
 - Failed or invalid trials must be retained and explained rather than silently discarded.
 - Results should describe limitations such as host variation, container cold-start time, and workload repeatability.
+
+## Runner and exports
+
+`scripts/run_experiment.py` runs one bounded Locust trial for any locked workload scenario and policy, records the observed API data in MongoDB, and exports JSON and CSV by default to `results/`. It requires an explicit policy and scenario, for example:
+
+```text
+python scripts/run_experiment.py --policy adaptive_predictive --scenario sudden_spike
+```
+
+The runner records configuration and workload settings, initial replica target, monitoring/horizon contract, raw metrics, predictions, scaling events, model-version records, and calculated descriptive summaries. It does not make comparative performance claims. Before comparing policies, run each trial with the same arguments and an equivalent declared model/data starting state. Existing results can be downloaded later with `scripts/export_experiment.py <experiment-id>` or the dashboard links.

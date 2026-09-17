@@ -1,4 +1,9 @@
+import csv
+import io
+import json
+
 from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import Response
 
 from src.repositories.metrics import MetricsRepository
 
@@ -13,6 +18,11 @@ def get_metrics_repository() -> MetricsRepository:
 def get_repositories():
     from src.main import document_repositories
     return document_repositories
+
+
+def get_config():
+    from src.main import config
+    return config
 
 
 @router.get("/metrics/current")
@@ -33,13 +43,14 @@ def metric_history(limit: int = Query(default=100, ge=1, le=1_000), repository: 
 
 
 @router.get("/status")
-def system_status(repository: MetricsRepository = Depends(get_metrics_repository)):
+def system_status(repository: MetricsRepository = Depends(get_metrics_repository), config: dict = Depends(get_config)):
     latest = repository.latest()
     if latest is None:
         return {"monitoring": "waiting_for_first_sample", "active_healthy_replica_count": 0}
     latest.pop("_id", None)
     return {
         "monitoring": "degraded" if latest.get("collection_error") else "healthy",
+        "autoscaling_mode": config["selected_policy"],
         "last_sample_timestamp": latest["timestamp"],
         "active_healthy_replica_count": latest["active_healthy_replica_count"],
         "collection_error": latest.get("collection_error"),
@@ -76,3 +87,36 @@ def scaling_events(limit: int = Query(default=100, ge=1, le=1_000), repositories
     for item in items:
         item.pop("_id", None)
     return {"items": items}
+
+
+@router.get("/experiments")
+def experiments(limit: int = Query(default=100, ge=1, le=1_000), repositories=Depends(get_repositories)):
+    items = repositories["experiments"].history(limit)
+    for item in items:
+        item.pop("_id", None)
+    return {"items": items}
+
+
+@router.get("/experiments/{experiment_id}/export")
+def export_experiment(experiment_id: str, format: str = Query(default="json", pattern="^(json|csv)$"), repositories=Depends(get_repositories)):
+    item = repositories["experiments"].collection.find_one({"experiment_id": experiment_id})
+    if item is None:
+        raise HTTPException(status_code=404, detail="Experiment not found.")
+    item.pop("_id", None)
+    if format == "json":
+        return item
+
+    stream = io.StringIO()
+    writer = csv.DictWriter(stream, fieldnames=["record_type", "experiment_id", "policy", "timestamp", "model_version", "payload_json"])
+    writer.writeheader()
+    policy = item.get("configuration", {}).get("policy", "")
+    writer.writerow({"record_type": "experiment", "experiment_id": experiment_id, "policy": policy, "timestamp": item.get("started_at", ""), "model_version": "", "payload_json": json.dumps(item, default=str)})
+    results = item.get("results", {})
+    for record_type, key in (("metric", "metrics"), ("prediction", "predictions"), ("scaling_event", "scaling_events"), ("model_version", "model_versions")):
+        for record in results.get(key, []):
+            writer.writerow({
+                "record_type": record_type, "experiment_id": experiment_id, "policy": policy,
+                "timestamp": record.get("timestamp", record.get("created_at", "")), "model_version": record.get("model_version", record.get("version", "")),
+                "payload_json": json.dumps(record, default=str),
+            })
+    return Response(stream.getvalue(), media_type="text/csv", headers={"Content-Disposition": f'attachment; filename="{experiment_id}.csv"'})

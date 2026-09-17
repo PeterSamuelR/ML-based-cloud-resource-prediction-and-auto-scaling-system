@@ -12,5 +12,7 @@ The backend exposes read-only monitoring endpoints on port `8001`. They never ex
 | `GET /api/predictions` | Prediction records, including target-time actual CPU/error when evaluated. |
 | `GET /api/models` | Random Forest model-version records and measured MAE/RMSE metadata. |
 | `GET /api/scaling/events` | Read-only reactive/predictive scaling history. |
+| `GET /api/experiments` | Persisted observed experiment records. |
+| `GET /api/experiments/{id}/export?format=json|csv` | Download one persisted experiment for reporting. |
 
-Later passes may add read-only resources for predictions/errors, scaling events, model versions, and experiment records. The frontend will consume these APIs for visibility; it will not directly control Docker or make scaling decisions.
+The React dashboard consumes these APIs for visibility; it does not control Docker, start workloads, or make scaling decisions.
