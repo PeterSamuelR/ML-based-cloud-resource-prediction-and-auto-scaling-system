@@ -10,6 +10,7 @@ from fastapi import FastAPI
 from src.api.routes import router
 from src.core.config import load_config
 from src.repositories.database import create_document_repositories, create_metrics_repository
+from src.services.adaptation.service import AdaptiveRetrainingService
 from src.services.monitoring.collector import DockerMetricsCollector
 from src.services.monitoring.nginx_logs import NginxAccessLogReader
 from src.services.prediction.feedback import evaluate_due_predictions
@@ -20,6 +21,7 @@ metrics_repository = create_metrics_repository()
 document_repositories = create_document_repositories()
 config = load_config()
 prediction_service = RandomForestPredictionService(metrics_repository, document_repositories["model_versions"], config)
+adaptive_service = AdaptiveRetrainingService(document_repositories["predictions"].collection, prediction_service, config)
 scaling_controller = None
 
 
@@ -47,6 +49,10 @@ async def monitoring_loop() -> None:
             await asyncio.to_thread(prediction_service.train_if_needed)
             prediction = prediction_service.predict(metric.model_dump())
             selected_policy = config["selected_policy"]
+            if selected_policy == "adaptive_predictive":
+                adaptation = await asyncio.to_thread(adaptive_service.evaluate)
+                if adaptation["outcome"] in {"activated", "rejected"}:
+                    print(f"Adaptive retraining {adaptation['outcome']}: {adaptation}", flush=True)
             if prediction is not None:
                 await asyncio.to_thread(document_repositories["predictions"].insert, prediction)
                 decision_policy, decision_cpu = selected_policy, prediction.predicted_aggregate_cpu_percent

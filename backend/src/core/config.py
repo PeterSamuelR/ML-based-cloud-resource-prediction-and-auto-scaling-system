@@ -22,11 +22,16 @@ def load_config() -> dict[str, Any]:
         config = yaml.safe_load(file)
     # Both threshold sections are needed because a predictive deployment falls
     # back to the reactive baseline while no trained model is available.
-    for policy_name in ("reactive", "predictive"):
+    for policy_name in ("reactive", "predictive", "adaptive"):
         policy_file = config_directory / f"{policy_name}.yaml"
         if policy_file.exists():
             with policy_file.open(encoding="utf-8") as file:
-                config = _merge(config, yaml.safe_load(file))
+                override = yaml.safe_load(file)
+                # Policy files contribute their settings; the environment selects
+                # the runtime policy and must not be overwritten by merge order.
+                override.pop("policy", None)
+                config = _merge(config, override)
     policy = os.getenv("AUTOSCALING_POLICY", "reactive")
     config["selected_policy"] = policy
+    config["policy"] = policy
     return config

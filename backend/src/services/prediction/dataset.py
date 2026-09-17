@@ -13,6 +13,7 @@ FEATURE_COLUMNS = [
     "response_time_ms",
     "active_healthy_replica_count",
 ]
+FEATURE_DEFINITION_VERSION = "aggregate_cpu_features_v1"
 
 
 @dataclass

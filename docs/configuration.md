@@ -22,6 +22,8 @@
 | `adaptive.retraining_cooldown_seconds` | 1800 | Minimum time between retraining attempts. |
 | `adaptive.candidate_validation_required` | `true` | Candidate must pass validation before activation. |
 
+Adaptive candidate validation is chronological and compares candidate MAE with the current active model's MAE on the same recent holdout. Candidate and baseline RMSE are stored for inspection. See [adaptive retraining](adaptive-retraining.md) for the complete activation contract.
+
 The numeric values are initial, configurable research defaults—not claimed optimal settings. Their suitability will be evaluated later using real experiments.
 
 ## Pass 1 workload controls

@@ -10,7 +10,7 @@ The contribution is the implementation and evaluation of the error-aware adaptiv
 
 ## Status
 
-**Phase 3 — Nginx load balancing and dynamic application membership is complete.** The repository now includes a Docker Compose local environment where a label-scoped membership controller discovers healthy application replicas, generates an Nginx upstream, validates it, and gracefully reloads Nginx. Database integration, monitoring, machine learning, autoscaling decisions, adaptive retraining, and the React frontend remain unimplemented.
+**Pass 3 — error-aware adaptive predictive autoscaling is complete.** The local Docker environment includes label-scoped Nginx membership, five-second monitoring, MongoDB persistence, a Random Forest predictor, reactive/predictive policies, prediction feedback, and guarded adaptive candidate replacement. The React frontend and later experimental evaluation work remain out of scope.
 
 ## Locked control loop
 
@@ -28,7 +28,7 @@ Locust will generate controlled workloads against Nginx, which will route traffi
 - At observation time `t`, features may use only data available at or before `t`; the target is the actual aggregate CPU observed at `t + 30 seconds`.
 - Training and evaluation use chronological splits to prevent temporal leakage.
 
-Full definitions are in [docs/architecture.md](docs/architecture.md) and [docs/decisions.md](docs/decisions.md).
+Full definitions are in [docs/architecture.md](docs/architecture.md), [docs/decisions.md](docs/decisions.md), and [adaptive retraining](docs/adaptive-retraining.md).
 
 ## Safety boundaries
 
