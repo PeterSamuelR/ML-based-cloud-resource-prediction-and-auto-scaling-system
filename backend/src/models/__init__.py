@@ -1,0 +1,1 @@
+"""Persisted document schemas."""

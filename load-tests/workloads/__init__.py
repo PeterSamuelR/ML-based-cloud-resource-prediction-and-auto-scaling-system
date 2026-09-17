@@ -1,0 +1,1 @@
+"""Configurable Locust workload definitions."""

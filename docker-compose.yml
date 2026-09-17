@@ -20,6 +20,7 @@ services:
       - "8080:80"
     volumes:
       - nginx-runtime:/etc/nginx/generated
+      - nginx-logs:/var/log/nginx
     networks:
       - application-network
 
@@ -34,9 +35,40 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - nginx-runtime:/runtime
 
+  mongodb:
+    image: mongo:7.0
+    environment:
+      MONGO_INITDB_DATABASE: cloud_autoscaling
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - mongodb-data:/data/db
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017
+      MONGODB_DATABASE: cloud_autoscaling
+      MONITORING_INTERVAL_SECONDS: "5"
+      NGINX_ACCESS_LOG: /var/log/nginx/access.json
+    ports:
+      - "8001:8001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - nginx-logs:/var/log/nginx:ro
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
 networks:
   application-network:
     name: cloud-resource-autoscaling-network
 
 volumes:
   nginx-runtime:
+  nginx-logs:
+  mongodb-data:
