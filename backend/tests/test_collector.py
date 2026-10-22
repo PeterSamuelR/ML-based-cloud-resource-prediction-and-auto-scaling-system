@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+from threading import Barrier
 
 from src.services.monitoring.collector import DockerMetricsCollector
 
@@ -32,3 +33,22 @@ def test_collector_filters_unhealthy_and_averages_only_healthy_replicas():
     assert metric.aggregate_cpu_percent == 30.0
     assert metric.aggregate_memory_percent == 50.0
     assert [item.container_name for item in metric.per_container] == ["first", "second"]
+
+
+def test_collector_fetches_replica_stats_concurrently():
+    barrier = Barrier(2)
+
+    class ConcurrentContainer(Container):
+        def stats(self, stream: bool):
+            barrier.wait(timeout=2)
+            return self.result
+
+    replicas = [
+        ConcurrentContainer("first", True, stats(120, 100, 40, 100)),
+        ConcurrentContainer("second", True, stats(140, 100, 60, 100)),
+    ]
+
+    metric = DockerMetricsCollector(Client(replicas), Logs()).collect()
+
+    assert metric.collection_error is None
+    assert metric.aggregate_cpu_percent == 30.0

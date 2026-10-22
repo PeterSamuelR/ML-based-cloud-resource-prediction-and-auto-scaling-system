@@ -1,0 +1,189 @@
+{"kind":"deck","id":"pr/a1uc30","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"subtitle","type":"subtitle","textPreview":"Click to edit Master subtitle style"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"Title and Content","type":"obj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout3.xml","name":"Section Header","type":"secHead","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout4.xml","name":"Two Content","type":"twoObj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"content placeholder 3","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout5.xml","name":"Comparison","type":"twoTxTwoObj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"content placeholder 3","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"content placeholder 5","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout6.xml","name":"Title Only","type":"titleOnly","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout7.xml","name":"Blank","type":"blank","placeholders":[{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout8.xml","name":"Content with Caption","type":"objTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout9.xml","name":"Picture with Caption","type":"picTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"picture","type":"picture"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout10.xml","name":"Title and Vertical Text","type":"vertTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout11.xml","name":"Vertical Title and Text","type":"vertTitleAndTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"23-09-2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"ML-BASED CLOUD RESOURCE PREDICTION & AUTO-SCALING SYSTEM","textShapes":5}
+{"kind":"textbox","id":"sh/e1oz61c3","slide":1,"name":"CustomShape 1","text":"ML-BASED CLOUD RESOURCE PREDICTION & AUTO-SCALING SYSTEM","textPreview":"ML-BASED CLOUD RESOURCE PREDICTION & AUTO-SCALING SYSTEM","textChars":56,"textLines":1,"bbox":[241.72,381.92,816.07,87.09]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"TextBox 3","text":"BATCH: A6","textPreview":"BATCH: A6","textChars":9,"textLines":1,"bbox":[471.04,311.47,336,61.39]}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"name":"Title 1","placeholder":"title","text":"     \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nACADEMIC YEAR : 2026 -2027\n\n  DOMAIN: CLOUD COMPUTING","textPreview":"|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ...","textChars":157,"textLines":102,"bbox":[215.26,188.15,888,114.26]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"name":"Rectangle 2","text":"GUIDE NAME\nDr. A. PUNITHA, Ph.D,\nASSISTANT PROFESSOR(Sr.Gr)\nDEPARTMENT OF IT","textPreview":"GUIDE NAME | Dr. A. PUNITHA, Ph.D, | ASSISTANT PROFESSOR(Sr.Gr) | DEPARTMENT OF IT","textChars":76,"textLines":4,"bbox":[107.05,513.49,257,104.36]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"name":"Rectangle 3","text":"TEAM MEMBERS\nPETER SAMUEL. R [23TH0269]\nJOEL RAJKUMAR. W [23TH0237]\nNAVAMANI. B [23TH0260]\nJAYASURYA. K [23TH0235]","textPreview":"TEAM MEMBERS | PETER SAMUEL. R [23TH0269] | JOEL RAJKUMAR. W [23TH0237] | NAVAMANI. B [23TH0260] | JAYASURYA. K [23TH0235]","textChars":114,"textLines":5,"bbox":[949.43,485.91,307.67,125.36]}
+{"kind":"image","id":"im/21c3e5kj","slide":1,"name":"Picture 6","bbox":[190.25,18.19,919,160.67]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":""}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"OBJECTIVES & ABSTRACT","textShapes":5}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"Text 0","text":"OBJECTIVES & ABSTRACT","textPreview":"OBJECTIVES & ABSTRACT","textChars":21,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"shape","id":"sh/ozy1ofad","slide":2,"name":"Shape 1","bbox":[628.8,110.4,0,542.4]}
+{"kind":"textbox","id":"sh/b29kza94","slide":2,"name":"Text 2","text":"Objectives","textPreview":"Objectives","textChars":10,"textLines":1,"bbox":[43.2,100.8,576,38.4]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"name":"Text 3","text":"Monitor resource utilization and workload of containerized applications.\nPredict future aggregate CPU utilization using Machine Learning.\nPerform reactive and predictive scaling of application replicas.\nDynamically manage healthy application replicas using Docker and Nginx.\nDetect persistent prediction errors and adapt the prediction model through validated retraining.\nEvaluate the system under different workload patterns.","textPreview":"Monitor resource utilization and workload of containerized applications. | Predict future aggregate CPU utilization using Machine Learnin...","textChars":426,"textLines":6,"bbox":[43.2,144,576,499.2]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"name":"Text 4","text":"Abstract","textPreview":"Abstract","textChars":8,"textLines":1,"bbox":[657.6,100.8,576,38.4]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"name":"Text 5","text":"The proposed system is a Docker-based predictive autoscaling framework that combines workload monitoring, machine learning-based CPU prediction, and automated replica management. A Random Forest regression model predicts future aggregate CPU utilization using current and historical workload metrics. A scaling controller uses the prediction to make scaling decisions, while Docker and Nginx dynamically manage application replicas. An error-aware adaptive mechanism is incorporated to retrain and validate the prediction model when persistent prediction errors are detected.","textPreview":"The proposed system is a Docker-based predictive autoscaling framework that combines workload monitoring, machine learning-based CPU pred...","textChars":575,"textLines":1,"bbox":[657.6,144,576,499.2]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":""}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"EXISTING & PROPOSED ARCHITECTURE","textShapes":26}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"name":"Text 0","text":"EXISTING & PROPOSED ARCHITECTURE","textPreview":"EXISTING & PROPOSED ARCHITECTURE","textChars":32,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"name":"Text 1","text":"EXISTING — REACTIVE AUTOSCALING","textPreview":"EXISTING — REACTIVE AUTOSCALING","textChars":31,"textLines":1,"bbox":[38.4,96,336,33.6]}
+{"kind":"textbox","id":"sh/298ryl4v","slide":3,"name":"Text 2","text":"PROPOSED SYSTEM","textPreview":"PROPOSED SYSTEM","textChars":15,"textLines":1,"bbox":[398.4,96,489.6,33.6]}
+{"kind":"textbox","id":"sh/3ah8rqlg","slide":3,"name":"Text 3","text":"ERROR-AWARE FEEDBACK LOOP","textPreview":"ERROR-AWARE FEEDBACK LOOP","textChars":25,"textLines":1,"bbox":[912,96,326.4,33.6]}
+{"kind":"shape","id":"sh/obq90bml","slide":3,"name":"Shape 4","bbox":[38.4,148.8,336,59.52]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"name":"Text 5","text":"User / Workload","textPreview":"User / Workload","textChars":15,"textLines":1,"bbox":[38.4,148.8,336,59.52]}
+{"kind":"shape","id":"sh/m5cra54z","slide":3,"name":"Shape 6","bbox":[197.76,208.32,17.28,30.72]}
+{"kind":"shape","id":"sh/n6ls3alk","slide":3,"name":"Shape 7","bbox":[38.4,239.04,336,59.52]}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"name":"Text 8","text":"Application","textPreview":"Application","textChars":11,"textLines":1,"bbox":[38.4,239.04,336,59.52]}
+{"kind":"shape","id":"sh/m1c3mlsn","slide":3,"name":"Shape 9","bbox":[197.76,298.56,17.28,30.72]}
+{"kind":"shape","id":"sh/943mhgre","slide":3,"name":"Shape 10","bbox":[38.4,329.28,336,59.52]}
+{"kind":"textbox","id":"sh/83ulovat","slide":3,"name":"Text 11","text":"Resource Monitoring","textPreview":"Resource Monitoring","textChars":19,"textLines":1,"bbox":[38.4,329.28,336,59.52]}
+{"kind":"shape","id":"sh/v6l4jq94","slide":3,"name":"Shape 12","bbox":[197.76,388.8,17.28,30.72]}
+{"kind":"shape","id":"sh/a5c3ql8z","slide":3,"name":"Shape 13","bbox":[38.4,419.52,336,59.52]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"name":"Text 14","text":"Threshold-Based Decision","textPreview":"Threshold-Based Decision","textChars":24,"textLines":1,"bbox":[38.4,419.52,336,59.52]}
+{"kind":"shape","id":"sh/w7ulsvqp","slide":3,"name":"Shape 15","bbox":[197.76,479.04,17.28,30.72]}
+{"kind":"shape","id":"sh/ja54na9g","slide":3,"name":"Shape 16","bbox":[38.4,509.76,336,59.52]}
+{"kind":"textbox","id":"sh/i9w3u58v","slide":3,"name":"Text 17","text":"Scale Out / Scale In","textPreview":"Scale Out / Scale In","textChars":20,"textLines":1,"bbox":[38.4,509.76,336,59.52]}
+{"kind":"shape","id":"sh/e10f2twf","slide":3,"name":"Shape 18","bbox":[398.4,144,489.6,38.4]}
+{"kind":"textbox","id":"sh/f29gbyx0","slide":3,"name":"Text 19","text":"Locust","textPreview":"Locust","textChars":6,"textLines":1,"bbox":[398.4,144,489.6,38.4]}
+{"kind":"shape","id":"sh/03ix43e5","slide":3,"name":"Shape 20","bbox":[634.56,182.4,17.28,12.48]}
+{"kind":"shape","id":"sh/14ryd8fq","slide":3,"name":"Shape 21","bbox":[398.4,194.88,489.6,38.4]}
+{"kind":"textbox","id":"sh/6d0fytg3","slide":3,"name":"Text 22","text":"Nginx Load Balancer","textPreview":"Nginx Load Balancer","textChars":19,"textLines":1,"bbox":[398.4,194.88,489.6,38.4]}
+{"kind":"shape","id":"sh/re9g7yxo","slide":3,"name":"Shape 23","bbox":[634.56,233.28,17.28,12.48]}
+{"kind":"shape","id":"sh/sfix03y9","slide":3,"name":"Shape 24","bbox":[398.4,245.76,489.6,38.4]}
+{"kind":"textbox","id":"sh/tgry9ofu","slide":3,"name":"Text 25","text":"Healthy FastAPI Application Replicas","textPreview":"Healthy FastAPI Application Replicas","textChars":36,"textLines":1,"bbox":[398.4,245.76,489.6,38.4]}
+{"kind":"shape","id":"sh/a9kfadwn","slide":3,"name":"Shape 26","bbox":[634.56,284.16,17.28,12.48]}
+{"kind":"shape","id":"sh/batgjixs","slide":3,"name":"Shape 27","bbox":[398.4,296.64,489.6,38.4]}
+{"kind":"textbox","id":"sh/l4fi9cza","slide":3,"name":"Text 28","text":"Monitoring","textPreview":"Monitoring","textChars":10,"textLines":1,"bbox":[398.4,296.64,489.6,38.4]}
+{"kind":"shape","id":"sh/k3m1g7yp","slide":3,"name":"Shape 29","bbox":[634.56,335.04,17.28,12.48]}
+{"kind":"shape","id":"sh/z2d07mh4","slide":3,"name":"Shape 30","bbox":[398.4,347.52,489.6,38.4]}
+{"kind":"textbox","id":"sh/y14jehgj","slide":3,"name":"Text 31","text":"MongoDB","textPreview":"MongoDB","textChars":7,"textLines":1,"bbox":[398.4,347.52,489.6,38.4]}
+{"kind":"shape","id":"sh/x0vi5czy","slide":3,"name":"Shape 32","bbox":[634.56,385.92,17.28,12.48]}
+{"kind":"shape","id":"sh/czmhc7id","slide":3,"name":"Shape 33","bbox":[398.4,398.4,489.6,38.4]}
+{"kind":"textbox","id":"sh/byd032h8","slide":3,"name":"Text 34","text":"Random Forest Prediction","textPreview":"Random Forest Prediction","textChars":24,"textLines":1,"bbox":[398.4,398.4,489.6,38.4]}
+{"kind":"shape","id":"sh/ax4zax0n","slide":3,"name":"Shape 35","bbox":[634.56,436.8,17.28,12.48]}
+{"kind":"shape","id":"sh/hwzihwzi","slide":3,"name":"Shape 36","bbox":[398.4,449.28,489.6,38.4]}
+{"kind":"textbox","id":"sh/wv61obyx","slide":3,"name":"Text 37","text":"Scaling Policy","textPreview":"Scaling Policy","textChars":14,"textLines":1,"bbox":[398.4,449.28,489.6,38.4]}
+{"kind":"shape","id":"sh/4nuhs7uh","slide":3,"name":"Shape 38","bbox":[634.56,487.68,17.28,12.48]}
+{"kind":"shape","id":"sh/po3ilcvm","slide":3,"name":"Shape 39","bbox":[398.4,500.16,489.6,38.4]}
+{"kind":"textbox","id":"sh/21szqxcb","slide":3,"name":"Text 40","text":"Docker Replica Management","textPreview":"Docker Replica Management","textChars":25,"textLines":1,"bbox":[398.4,500.16,489.6,38.4]}
+{"kind":"shape","id":"sh/32l0j2dw","slide":3,"name":"Shape 41","bbox":[634.56,538.56,17.28,12.48]}
+{"kind":"shape","id":"sh/cruhwrud","slide":3,"name":"Shape 42","bbox":[398.4,551.04,489.6,38.4]}
+{"kind":"textbox","id":"sh/ds3ipcvy","slide":3,"name":"Text 43","text":"Nginx Membership Update","textPreview":"Nginx Membership Update","textChars":23,"textLines":1,"bbox":[398.4,551.04,489.6,38.4]}
+{"kind":"shape","id":"sh/qpczuhc7","slide":3,"name":"Shape 44","bbox":[634.56,589.44,17.28,12.48]}
+{"kind":"shape","id":"sh/rql0nmds","slide":3,"name":"Shape 45","bbox":[398.4,601.92,489.6,38.4]}
+{"kind":"textbox","id":"sh/0ve10ru9","slide":3,"name":"Text 46","text":"Application","textPreview":"Application","textChars":11,"textLines":1,"bbox":[398.4,601.92,489.6,38.4]}
+{"kind":"shape","id":"sh/1wnitwvu","slide":3,"name":"Shape 47","bbox":[912,144,326.4,53.76]}
+{"kind":"textbox","id":"sh/v29cfu18","slide":3,"name":"Text 48","text":"Actual CPU","textPreview":"Actual CPU","textChars":10,"textLines":1,"bbox":[912,144,326.4,53.76]}
+{"kind":"shape","id":"sh/a10b6p03","slide":3,"name":"Shape 49","bbox":[1066.56,197.76,17.28,13.92]}
+{"kind":"shape","id":"sh/xoruhkje","slide":3,"name":"Shape 50","bbox":[912,211.68,326.4,53.76]}
+{"kind":"textbox","id":"sh/w3it8zit","slide":3,"name":"Text 51","text":"Prediction Error","textPreview":"Prediction Error","textChars":16,"textLines":1,"bbox":[912,211.68,326.4,53.76]}
+{"kind":"shape","id":"sh/nypcba1c","slide":3,"name":"Shape 52","bbox":[1066.56,265.44,17.28,13.92]}
+{"kind":"shape","id":"sh/mxgb250r","slide":3,"name":"Shape 53","bbox":[912,279.36,326.4,53.76]}
+{"kind":"textbox","id":"sh/90rudkji","slide":3,"name":"Text 54","text":"Persistent Error Detection","textPreview":"Persistent Error Detection","textChars":26,"textLines":1,"bbox":[912,279.36,326.4,53.76]}
+{"kind":"shape","id":"sh/8zit4fix","slide":3,"name":"Shape 55","bbox":[1066.56,333.12,17.28,13.92]}
+{"kind":"shape","id":"sh/7utcne1g","slide":3,"name":"Shape 56","bbox":[912,347.04,326.4,53.76]}
+{"kind":"textbox","id":"sh/6tkve90v","slide":3,"name":"Text 57","text":"Candidate Model Retraining","textPreview":"Candidate Model Retraining","textChars":26,"textLines":1,"bbox":[912,347.04,326.4,53.76]}
+{"kind":"shape","id":"sh/2p4f6dk3","slide":3,"name":"Shape 58","bbox":[1066.56,400.8,17.28,13.92]}
+{"kind":"shape","id":"sh/3qxwfilo","slide":3,"name":"Shape 59","bbox":[912,414.72,326.4,53.76]}
+{"kind":"textbox","id":"sh/or6x8329","slide":3,"name":"Text 60","text":"Chronological Validation","textPreview":"Chronological Validation","textChars":24,"textLines":1,"bbox":[912,414.72,326.4,53.76]}
+{"kind":"shape","id":"sh/psfeh83u","slide":3,"name":"Shape 61","bbox":[1066.56,468.48,17.28,13.92]}
+{"kind":"shape","id":"sh/qtofadkf","slide":3,"name":"Shape 62","bbox":[912,482.4,326.4,53.76]}
+{"kind":"textbox","id":"sh/bexwjil0","slide":3,"name":"Text 63","text":"Model Activation","textPreview":"Model Activation","textChars":16,"textLines":1,"bbox":[912,482.4,326.4,53.76]}
+{"kind":"shape","id":"sh/cf6xcn2l","slide":3,"name":"Shape 64","bbox":[326.4,664.32,624,38.4]}
+{"kind":"textbox","id":"sh/dgfyls3q","slide":3,"name":"Text 65","text":"React Dashboard   ↕   Backend APIs","textPreview":"React Dashboard   ↕   Backend APIs","textChars":34,"textLines":1,"bbox":[326.4,664.32,624,38.4]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":""}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"MODULE DESCRIPTION","textShapes":16}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"Text 0","text":"MODULE DESCRIPTION","textPreview":"MODULE DESCRIPTION","textChars":18,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"shape","id":"sh/0ba143al","slide":4,"name":"Shape 1","bbox":[43.2,100.8,379.2,273.6]}
+{"kind":"shape","id":"sh/rm1k7yt4","slide":4,"name":"Shape 2","bbox":[57.6,115.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/ql8jytsj","slide":4,"name":"Text 3","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[57.6,115.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/doj29oba","slide":4,"name":"Text 4","text":"Workload Generation","textPreview":"Workload Generation","textChars":19,"textLines":1,"bbox":[105.6,114.24,302.4,42.24]}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"name":"Text 5","text":"Locust-based controlled workload generation\nMultiple workload patterns\nSends traffic through Nginx","textPreview":"Locust-based controlled workload generation | Multiple workload patterns | Sends traffic through Nginx","textChars":98,"textLines":3,"bbox":[60.48,166.08,344.64,196.8]}
+{"kind":"shape","id":"sh/3ihk3et8","slide":4,"name":"Shape 6","bbox":[441.6,100.8,379.2,273.6]}
+{"kind":"shape","id":"sh/ih8ju9sn","slide":4,"name":"Shape 7","bbox":[456,115.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"name":"Text 8","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[456,115.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/5cva1cfq","slide":4,"name":"Text 9","text":"Monitoring & Data Management","textPreview":"Monitoring & Data Management","textChars":28,"textLines":1,"bbox":[504,114.24,302.4,42.24]}
+{"kind":"textbox","id":"sh/i94r6xgz","slide":4,"name":"Text 10","text":"CPU and memory monitoring\nRequest rate and response-time monitoring\nHealthy replica tracking\nMongoDB metric persistence","textPreview":"CPU and memory monitoring | Request rate and response-time monitoring | Healthy replica tracking | MongoDB metric persistence","textChars":119,"textLines":4,"bbox":[458.88,166.08,344.64,196.8]}
+{"kind":"shape","id":"sh/jadsz2xk","slide":4,"name":"Shape 11","bbox":[840,100.8,379.2,273.6]}
+{"kind":"shape","id":"sh/w72947yt","slide":4,"name":"Shape 12","bbox":[854.4,115.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"name":"Text 13","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[854.4,115.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/a5kr2xg3","slide":4,"name":"Text 14","text":"ML Prediction","textPreview":"ML Prediction","textChars":13,"textLines":1,"bbox":[902.4,114.24,302.4,42.24]}
+{"kind":"textbox","id":"sh/v6tsv2xo","slide":4,"name":"Text 15","text":"Random Forest regression\nHistorical and current workload/resource features\n30-second CPU prediction horizon\nPrediction/error tracking","textPreview":"Random Forest regression | Historical and current workload/resource features | 30-second CPU prediction horizon | Prediction/error tracking","textChars":133,"textLines":4,"bbox":[857.28,166.08,344.64,196.8]}
+{"kind":"shape","id":"sh/g36tgryd","slide":4,"name":"Shape 16","bbox":[242.4,398.4,379.2,273.6]}
+{"kind":"shape","id":"sh/h4fa9wfy","slide":4,"name":"Shape 17","bbox":[256.8,412.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/p0batw72","slide":4,"name":"Text 18","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[256.8,412.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"name":"Text 19","text":"Autoscaling & Adaptation","textPreview":"Autoscaling & Adaptation","textChars":24,"textLines":1,"bbox":[304.8,411.84,302.4,42.24]}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"name":"Text 20","text":"Reactive scaling\nPredictive scaling\nDocker-based replica management\nPersistent prediction-error detection\nCandidate model retraining and validation","textPreview":"Reactive scaling | Predictive scaling | Docker-based replica management | Persistent prediction-error detection | Candidate model retrain...","textChars":147,"textLines":5,"bbox":[259.68,463.68,344.64,196.8]}
+{"kind":"shape","id":"sh/2xkrih8b","slide":4,"name":"Shape 21","bbox":[640.8,398.4,379.2,273.6]}
+{"kind":"shape","id":"sh/1wbapc7q","slide":4,"name":"Shape 22","bbox":[655.2,412.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"name":"Text 23","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[655.2,412.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/fu9sn2p0","slide":4,"name":"Text 24","text":"Dashboard & Experimentation","textPreview":"Dashboard & Experimentation","textChars":27,"textLines":1,"bbox":[703.2,411.84,302.4,42.24]}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"name":"Text 25","text":"React + Vite dashboard\nLive system metrics\nPrediction and scaling history\nExperiment recording\nCSV/JSON result export","textPreview":"React + Vite dashboard | Live system metrics | Prediction and scaling history | Experiment recording | CSV/JSON result export","textChars":117,"textLines":5,"bbox":[658.08,463.68,344.64,196.8]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":""}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"STATUS SINCE REVIEW 1","textShapes":3}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"Text 0","text":"STATUS SINCE REVIEW 1","textPreview":"STATUS SINCE REVIEW 1","textChars":21,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"shape","id":"sh/yhkbe1o7","slide":5,"name":"Shape 1","bbox":[43.2,385.92,1180.8,148.8]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"name":"Text 2","text":"Major prototype implementation completed; remaining work focuses on evaluation analysis, documentation, demonstration refinement and final validation.\n","textPreview":"Major prototype implementation completed; remaining work focuses on evaluation analysis, documentation, demonstration refinement and fina...","textChars":151,"textLines":2,"bbox":[62.4,393.6,1142.4,48]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"name":"Text 3","text":"Current Work:  Final result analysis   •   Documentation and report preparation   •   Presentation/demo refinement   •   Final validation and viva preparation","textPreview":"Current Work:  Final result analysis   •   Documentation and report preparation   •   Presentation/demo refinement   •   Final validation...","textChars":158,"textLines":1,"bbox":[62.4,445.44,1142.4,81.6]}
+{"kind":"table","id":"tb/adonexsj","slide":5,"name":"Table 0","rows":8,"cols":2,"preview":"Milestone | Status","bbox":[43.2,100.8,576,96]}
+{"kind":"table","id":"tb/vex4n2t4","slide":5,"name":"Table 1","rows":8,"cols":2,"preview":"Milestone | Status","bbox":[648,100.8,576,96]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":""}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"CURRENT IMPLEMENTATION","textShapes":9}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"Text 0","text":"CURRENT IMPLEMENTATION","textPreview":"CURRENT IMPLEMENTATION","textChars":22,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"shape","id":"sh/zi98nu94","slide":6,"name":"Shape 1","bbox":[43.2,100.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/87ipkzal","slide":6,"name":"Text 2","text":"React Dashboard","textPreview":"React Dashboard","textChars":15,"textLines":1,"bbox":[43.2,100.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/98rqt4r6","slide":6,"name":"Text 3","text":"Live control-loop dashboard","textPreview":"Live control-loop dashboard","textChars":27,"textLines":1,"bbox":[43.2,315.84,571.2,38.4]}
+{"kind":"shape","id":"sh/ml07i9sv","slide":6,"name":"Shape 4","bbox":[648,100.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"name":"Text 5","text":"Locust","textPreview":"Locust","textChars":6,"textLines":1,"bbox":[648,100.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"name":"Text 6","text":"Controlled workload generation","textPreview":"Controlled workload generation","textChars":30,"textLines":1,"bbox":[648,315.84,571.2,38.4]}
+{"kind":"shape","id":"sh/pc76hkr2","slide":6,"name":"Shape 7","bbox":[43.2,388.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/h4bupgn6","slide":6,"name":"Text 8","text":"Docker / Terminal","textPreview":"Docker / Terminal","textChars":17,"textLines":1,"bbox":[43.2,388.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"name":"Text 9","text":"Dockerized application replica and supporting services","textPreview":"Dockerized application replica and supporting services","textChars":54,"textLines":1,"bbox":[43.2,603.84,571.2,38.4]}
+{"kind":"shape","id":"sh/v2tcn650","slide":6,"name":"Shape 10","bbox":[648,388.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"name":"Text 11","text":"Repository","textPreview":"Repository","textChars":10,"textLines":1,"bbox":[648,388.8,571.2,211.2]}
+{"kind":"textbox","id":"sh/5svutgni","slide":6,"name":"Text 12","text":"Modular project implementation","textPreview":"Modular project implementation","textChars":30,"textLines":1,"bbox":[648,603.84,571.2,38.4]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":""}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"PRELIMINARY RESULTS & TESTING","textShapes":4}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"name":"Text 0","text":"PRELIMINARY RESULTS & TESTING","textPreview":"PRELIMINARY RESULTS & TESTING","textChars":29,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"name":"Text 1","text":"Evaluation matrix — 3 policies × 5 workload patterns = 15 policy–workload combinations","textPreview":"Evaluation matrix — 3 policies × 5 workload patterns = 15 policy–workload combinations","textChars":86,"textLines":1,"bbox":[43.2,91.2,1190.4,33.6]}
+{"kind":"shape","id":"sh/zedcfa9g","slide":7,"name":"Shape 2","bbox":[744,134.4,480,288]}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"name":"Text 3","text":"Each cell records a completed, reproducible trial. Raw metrics, predictions, scaling events, and prediction errors are exported per trial to results/ for offline analysis.","textPreview":"Each cell records a completed, reproducible trial. Raw metrics, predictions, scaling events, and prediction errors are exported per trial...","textChars":171,"textLines":1,"bbox":[763.2,148.8,441.6,259.2]}
+{"kind":"shape","id":"sh/l0vuh0rm","slide":7,"name":"Shape 4","bbox":[43.2,446.4,1180.8,206.4]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"name":"Text 5","text":"Honest reporting note\n\nThe fixed evaluation traces did not cross the configured scaling conditions during those runs; separate controlled validation was used to verify scaling and adaptive retraining behavior.","textPreview":"Honest reporting note |  | The fixed evaluation traces did not cross the configured scaling conditions during those runs; separate contro...","textChars":209,"textLines":3,"bbox":[62.4,458.88,1142.4,182.4]}
+{"kind":"table","id":"tb/alg7adcj","slide":7,"name":"Table 0","rows":4,"cols":6,"preview":"Stable | Gradual Increase | Sudden Spike | Sudden Drop | Changing Workload","bbox":[43.2,134.4,672,96]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":""}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"HURDLES & MITIGATION","textShapes":1}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"name":"Text 0","text":"HURDLES & MITIGATION","textPreview":"HURDLES & MITIGATION","textChars":20,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"table","id":"tb/d4nu5ozq","slide":8,"name":"Table 0","rows":7,"cols":2,"preview":"Hurdle | Mitigation","bbox":[43.2,105.6,1180.8,96]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":""}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"FUTURE WORK & TIMELINE","textShapes":13}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"name":"Text 0","text":"FUTURE WORK & TIMELINE","textPreview":"FUTURE WORK & TIMELINE","textChars":22,"textLines":1,"bbox":[43.2,26.88,1190.4,57.6]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"name":"Text 1","text":"Remaining Work","textPreview":"Remaining Work","textChars":14,"textLines":1,"bbox":[43.2,94.08,556.8,33.6]}
+{"kind":"textbox","id":"sh/nex4jq5k","slide":9,"name":"Text 2","text":"Final result analysis\nFinal report / documentation\nDemo refinement\nPresentation preparation\nViva preparation\nFinal validation","textPreview":"Final result analysis | Final report / documentation | Demo refinement | Presentation preparation | Viva preparation | Final validation","textChars":125,"textLines":6,"bbox":[43.2,132.48,556.8,211.2]}
+{"kind":"textbox","id":"sh/mdonql4z","slide":9,"name":"Text 3","text":"Possible Technical Extensions","textPreview":"Possible Technical Extensions","textChars":29,"textLines":1,"bbox":[43.2,360,556.8,33.6]}
+{"kind":"textbox","id":"sh/9gzml0nq","slide":9,"name":"Text 4","text":"Integrate Locust workload controls into the React dashboard.\nPerform longer-duration and higher-intensity workload experiments.\nCompare additional prediction models.\nImprove dashboard visualization and experiment controls.\nExplore deployment in a cloud/Kubernetes environment as a future extension.","textPreview":"Integrate Locust workload controls into the React dashboard. | Perform longer-duration and higher-intensity workload experiments. | Compa...","textChars":298,"textLines":5,"bbox":[43.2,398.4,556.8,249.6]}
+{"kind":"textbox","id":"sh/ofq5svm5","slide":9,"name":"Text 5","text":"Timeline to Final Review","textPreview":"Timeline to Final Review","textChars":24,"textLines":1,"bbox":[633.6,94.08,595.2,33.6]}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"name":"Text 6","text":"Weeks →","textPreview":"Weeks →","textChars":7,"textLines":1,"bbox":[816,129.6,403.2,23.04]}
+{"kind":"shape","id":"sh/ah8nu54b","slide":9,"name":"Shape 7","bbox":[816,150.72,0,326.4]}
+{"kind":"shape","id":"sh/oza1gfyh","slide":9,"name":"Shape 8","bbox":[883.2,150.72,0,326.4]}
+{"kind":"shape","id":"sh/p0ji9kf2","slide":9,"name":"Shape 9","bbox":[950.4,150.72,0,326.4]}
+{"kind":"shape","id":"sh/2xsjepgb","slide":9,"name":"Shape 10","bbox":[1017.6,150.72,0,326.4]}
+{"kind":"shape","id":"sh/3y107axw","slide":9,"name":"Shape 11","bbox":[1084.8,150.72,0,326.4]}
+{"kind":"shape","id":"sh/cnu1kzyd","slide":9,"name":"Shape 12","bbox":[1152,150.72,0,326.4]}
+{"kind":"shape","id":"sh/do3id4fy","slide":9,"name":"Shape 13","bbox":[1219.2,150.72,0,326.4]}
+{"kind":"textbox","id":"sh/qlcjipgn","slide":9,"name":"Text 14","text":"Result analysis","textPreview":"Result analysis","textChars":15,"textLines":1,"bbox":[633.6,155.52,172.8,52.8]}
+{"kind":"shape","id":"sh/bml0buxs","slide":9,"name":"Shape 15","bbox":[816,165.12,134.4,33.6]}
+{"kind":"textbox","id":"sh/0ru1ozyp","slide":9,"name":"Text 16","text":"Documentation","textPreview":"Documentation","textChars":13,"textLines":1,"bbox":[633.6,208.32,172.8,52.8]}
+{"kind":"shape","id":"sh/lsn2h4fa","slide":9,"name":"Shape 17","bbox":[883.2,217.92,134.4,33.6]}
+{"kind":"textbox","id":"sh/98ji147e","slide":9,"name":"Text 18","text":"Demo refinement","textPreview":"Demo refinement","textChars":15,"textLines":1,"bbox":[633.6,261.12,172.8,52.8]}
+{"kind":"shape","id":"sh/87a18zqt","slide":9,"name":"Shape 19","bbox":[950.4,270.72,134.4,33.6]}
+{"kind":"textbox","id":"sh/76h0zup8","slide":9,"name":"Text 20","text":"Presentation prep","textPreview":"Presentation prep","textChars":17,"textLines":1,"bbox":[633.6,313.92,172.8,52.8]}
+{"kind":"shape","id":"sh/ml8j6p8n","slide":9,"name":"Shape 21","bbox":[1017.6,323.52,134.4,33.6]}
+{"kind":"textbox","id":"sh/hcji5o7a","slide":9,"name":"Text 22","text":"Viva prep","textPreview":"Viva prep","textChars":9,"textLines":1,"bbox":[633.6,366.72,172.8,52.8]}
+{"kind":"shape","id":"sh/wba1cjqp","slide":9,"name":"Shape 23","bbox":[1084.8,376.32,100.8,33.6]}
+{"kind":"textbox","id":"sh/va103ep4","slide":9,"name":"Text 24","text":"Final validation","textPreview":"Final validation","textChars":16,"textLines":1,"bbox":[633.6,419.52,172.8,52.8]}
+{"kind":"shape","id":"sh/u9sja98z","slide":9,"name":"Shape 25","bbox":[1118.4,429.12,100.8,33.6]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":""}

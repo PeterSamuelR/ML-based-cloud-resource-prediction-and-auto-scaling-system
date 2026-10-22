@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from statistics import mean
 
@@ -55,15 +56,20 @@ class DockerMetricsCollector:
             healthy = []
             errors.append(f"Docker discovery failed: {error}")
 
-        for container in healthy:
-            try:
-                stats = container.stats(stream=False)
-                per_container.append(ContainerMetric(
-                    container_id=container.id[:12], container_name=container.name,
-                    cpu_percent=cpu_percent(stats), memory_percent=memory_percent(stats),
-                ))
-            except Exception as error:
-                errors.append(f"Stats failed for {container.name}: {error}")
+        # Docker's one-shot stats API can take seconds per container. Fetch in
+        # parallel so replica count does not multiply the monitoring interval.
+        if healthy:
+            with ThreadPoolExecutor(max_workers=min(len(healthy), 8)) as pool:
+                pending = [(container, pool.submit(container.stats, stream=False)) for container in healthy]
+                for container, future in pending:
+                    try:
+                        stats = future.result()
+                        per_container.append(ContainerMetric(
+                            container_id=container.id[:12], container_name=container.name,
+                            cpu_percent=cpu_percent(stats), memory_percent=memory_percent(stats),
+                        ))
+                    except Exception as error:
+                        errors.append(f"Stats failed for {container.name}: {error}")
 
         try:
             traffic = self.log_reader.read_window()

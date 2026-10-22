@@ -4,6 +4,7 @@ from pymongo import MongoClient
 
 from src.repositories.documents import DocumentRepository
 from src.repositories.metrics import MetricsRepository
+from src.repositories.training_samples import TrainingSampleRepository
 
 
 def create_metrics_repository() -> MetricsRepository:
@@ -20,4 +21,5 @@ def create_document_repositories() -> dict[str, DocumentRepository]:
         "scaling_events": DocumentRepository(database["scaling_events"]),
         "model_versions": DocumentRepository(database["model_versions"], timestamp_field="created_at"),
         "experiments": DocumentRepository(database["experiments"], timestamp_field="started_at"),
+        "training_samples": TrainingSampleRepository(database["training_samples"]),
     }

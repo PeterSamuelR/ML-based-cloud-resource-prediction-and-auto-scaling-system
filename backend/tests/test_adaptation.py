@@ -89,7 +89,8 @@ class RetrainingStub:
 def config(minimum=20):
     return {
         "monitoring": {"interval_seconds": 5},
-        "prediction": {"horizon_seconds": 30, "minimum_training_samples": 8, "training_fraction": 0.8, "random_forest_estimators": 10, "random_seed": 42},
+        "selected_policy": "predictive",
+        "prediction": {"horizon_seconds": 30, "minimum_training_samples": 8, "recent_training_samples": 60, "refresh_interval_seconds": 300, "training_fraction": 0.8, "random_forest_estimators": 10, "random_seed": 42, "random_forest_tuning": {"n_estimators": [10], "max_depth": [None], "min_samples_leaf": [1], "cv_splits": 3}},
         "adaptive": {"absolute_error_threshold": 15.0, "consecutive_error_requirement": 3, "minimum_recent_training_samples": minimum, "retraining_cooldown_seconds": 1800, "candidate_validation_required": True},
     }
 
@@ -104,6 +105,10 @@ def metrics(count=80):
         {"timestamp": start + timedelta(seconds=5 * index), "aggregate_cpu_percent": float(index), "aggregate_memory_percent": 30, "request_rate_per_second": 2, "response_time_ms": 10, "active_healthy_replica_count": 1}
         for index in range(count)
     ]
+
+
+def fresh_training_time():
+    return metrics()[-1]["timestamp"] + timedelta(seconds=5)
 
 
 def test_persistent_error_detection_triggers_only_after_required_consecutive_breaches():
@@ -150,9 +155,22 @@ def test_recent_sample_requirement_blocks_candidate_training(tmp_path):
     service = RandomForestPredictionService(Metrics(metrics(20)), Versions(), config(minimum=20), str(tmp_path))
     service.model, service.version = ConstantModel(), "active-v1"
 
-    result = service.retrain_recent({"breaches": []})
+    result = service.retrain_recent({"breaches": []}, now=fresh_training_time())
 
     assert result["outcome"] == "insufficient_samples"
+
+
+def test_retraining_does_not_use_stale_history_to_meet_recent_sample_requirement(tmp_path):
+    versions = Versions()
+    versions.collection.items.append({"version": "active-v1", "status": "active", "metadata": {}})
+    service = RandomForestPredictionService(Metrics(metrics()), versions, config(), str(tmp_path))
+    service.model, service.version = ConstantModel(), "active-v1"
+
+    result = service.retrain_recent({"breaches": []}, now=datetime(2026, 1, 2, tzinfo=timezone.utc))
+
+    assert result["outcome"] == "insufficient_samples"
+    assert versions.collection.find_one({"status": "active"})["version"] == "active-v1"
+    assert len(versions.collection.items) == 1
 
 
 def test_candidate_rejection_preserves_active_version(tmp_path):
@@ -161,7 +179,7 @@ def test_candidate_rejection_preserves_active_version(tmp_path):
     service = RandomForestPredictionService(Metrics(metrics()), versions, config(), str(tmp_path))
     service.model, service.version = ConstantModel(offset=6), "active-v1"
 
-    result = service.retrain_recent({"breaches": []})
+    result = service.retrain_recent({"breaches": []}, now=fresh_training_time())
 
     assert result["outcome"] == "rejected"
     assert versions.collection.find_one({"status": "active"})["version"] == "active-v1"
@@ -175,7 +193,7 @@ def test_successful_candidate_validation_activates_and_tracks_versions(tmp_path)
     service = RandomForestPredictionService(Metrics(metrics()), versions, config(), str(tmp_path))
     service.model, service.version = ConstantModel(offset=-100), "active-v1"
 
-    result = service.retrain_recent({"breaches": [{"absolute_error": 20}]})
+    result = service.retrain_recent({"breaches": [{"absolute_error": 20}]}, now=fresh_training_time())
 
     assert result["outcome"] == "activated"
     assert result["previous_version"] == "active-v1"
@@ -183,8 +201,37 @@ def test_successful_candidate_validation_activates_and_tracks_versions(tmp_path)
     assert versions.collection.find_one({"status": "active"})["version"] == result["version"]
     assert any(record["status"] == "superseded" for record in versions.collection.items)
     active = versions.collection.find_one({"status": "active"})
-    assert active["metadata"]["training_window"]["valid_samples"] == 20
-    assert active["metadata"]["feature_definition_version"] == "aggregate_cpu_features_v1"
+    assert active["metadata"]["training_window"]["valid_samples"] > 20
+    assert active["metadata"]["training_window"]["recent_valid_samples"] >= 20
+    assert active["metadata"]["feature_definition_version"] == "aggregate_cpu_features_v2_temporal"
+
+
+def test_stale_predictive_model_refresh_is_validated_and_rate_limited(tmp_path, monkeypatch):
+    service = RandomForestPredictionService(Metrics(metrics()), Versions(), config(), str(tmp_path))
+    service.model, service.version = ConstantModel(), "active-v1"
+    service.training_window_end = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    calls = []
+    monkeypatch.setattr(service, "retrain_recent", lambda reason: calls.append(reason) or {"outcome": "rejected"})
+
+    service._refresh_stale_model_if_due()
+    service._refresh_stale_model_if_due()
+
+    assert len(calls) == 1
+    assert calls[0]["trigger"] == "stale_model_refresh"
+
+
+def test_adaptive_policy_does_not_bypass_error_gate_for_age_refresh(tmp_path, monkeypatch):
+    policy_config = config()
+    policy_config["selected_policy"] = "adaptive_predictive"
+    service = RandomForestPredictionService(Metrics(metrics()), Versions(), policy_config, str(tmp_path))
+    service.model, service.version = ConstantModel(), "active-v1"
+    service.training_window_end = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    calls = []
+    monkeypatch.setattr(service, "retrain_recent", lambda reason: calls.append(reason))
+
+    service._refresh_stale_model_if_due()
+
+    assert not calls
 
 
 def test_adaptive_policy_configuration_is_loaded(monkeypatch, tmp_path):

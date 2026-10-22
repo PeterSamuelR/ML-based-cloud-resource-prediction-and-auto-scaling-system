@@ -41,6 +41,8 @@
         "model": {"const": "random_forest_regression"},
         "temporal_split": {"const": "chronological"},
         "minimum_training_samples": {"type": "integer", "minimum": 2},
+        "recent_training_samples": {"type": "integer", "minimum": 2},
+        "training_history_limit": {"type": "integer", "minimum": 120},
         "training_fraction": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
         "random_forest_estimators": {"type": "integer", "minimum": 1},
         "random_seed": {"type": "integer"}
