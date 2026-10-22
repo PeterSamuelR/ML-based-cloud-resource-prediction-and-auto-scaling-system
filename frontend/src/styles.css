@@ -123,7 +123,18 @@ main.dashboard-shell { width: min(1512px, 100%); margin: 0 auto; padding: 34px c
 .chart-featured svg { height: 290px; }
 .chart-grid { stroke: #2a3952; stroke-width: .38; stroke-dasharray: 1.4 1.2; vector-effect: non-scaling-stroke; }
 .chart-axis { stroke: #53637e; stroke-width: .55; vector-effect: non-scaling-stroke; }
-.axis-label { fill: #9baac0; font-family: inherit; font-size: 2.9px; font-weight: 400; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.chart svg text.axis-label,
+.chart svg .axis-label {
+  fill: #9baac0;
+  font-family: Inter, "Segoe UI", ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  font-variant: normal !important;
+  font-variant-numeric: tabular-nums !important;
+  font-feature-settings: normal !important;
+  font-stretch: normal !important;
+}
 .y-axis-label { text-anchor: start; }
 .chart-line { fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .chart-point { stroke: #121b2b; stroke-width: .6; vector-effect: non-scaling-stroke; cursor: crosshair; }
